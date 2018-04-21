@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Sunum Ekle & Düzenle</h1>
+<form action="#" th:action="@{/presentation}" th:object="${presentation}" method="post">
+    <p>Konu: <input type="text" th:field="*{name}" required/></p>
+    <p>Süre(dk): <input type="number" th:field="*{duration}"/></p>
+    <p>lightning mi:<input type="checkbox" name="active" th:field="*{lightning}" /></p>
+    <input th:field="*{id}" hidden/></p>
+    <p><input type="submit" value="Kaydet"/></p>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>konu</th>
+        <th>Süre</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="presentation : ${presentationList}">
+        <td>
+            <label type="text" th:text="${presentation.name}"/>
+        </td>
+        <td>
+            <label type="text" th:text="${presentation.duration}"/>
+        </td>
+        <td>
+            <a th:href="@{'/presentation/' + ${presentation.id}}" rel="nofollow">Düzenle</a>
+        <td>
+            <a th:href="@{'/presentation/remove/' + ${presentation.id}}" rel="nofollow">Sil</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/schedule">Takvimi Görüntüle</a>
+
+</body>
+</html>

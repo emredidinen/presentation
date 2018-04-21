@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+
+
+<h2>1. Gün</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Beginning Time</th>
+        <th>Subject</th>
+        <th>Duration</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="presentationDetail : ${schedule.firstMorning.presentationDetailList}">
+        <td>
+            <label type="text" th:text="${presentationDetail.beginningTime}"/>
+        </td>
+        <td>
+            <label type="text" th:text="${presentationDetail.presentationDTO.name}"/>
+        </td>
+        <td>
+            <label type="text" th:text="${presentationDetail.duration}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            12 : 00
+        </td>
+        <td>
+            Lunch
+        </td>
+        <td>
+            60 min
+        </td>
+    </tr>
+    <tr th:each="presentationDetail : ${schedule.firstNoon.presentationDetailList}">
+        <td>
+            <label type="text" th:text="${presentationDetail.beginningTime}"/>
+        </td>
+        <td>
+            <label type="text" th:text="${presentationDetail.presentationDTO.name}"/>
+        </td>
+        <td>
+            <label type="text" th:text="${presentationDetail.duration}"/>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<h2>2. Gün</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Beginning Time</th>
+        <th>Subject</th>
+        <th>Duration</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="presentationDetail : ${schedule.secondMorning.presentationDetailList}">
+        <td>
+            <label type="text" th:text="${presentationDetail.beginningTime}"/>
+        </td>
+        <td>
+            <label type="text" th:text="${presentationDetail.presentationDTO.name}"/>
+        </td>
+        <td>
+            <label type="text" th:text="${presentationDetail.duration}"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            12 : 00
+        </td>
+        <td>
+            Lunch
+        </td>
+        <td>
+            60 min
+        </td>
+    </tr>
+    <tr th:each="presentationDetail : ${schedule.secondNoon.presentationDetailList}">
+        <td>
+            <label type="text" th:text="${presentationDetail.beginningTime}"/>
+        </td>
+        <td>
+            <label type="text" th:text="${presentationDetail.presentationDTO.name}"/>
+        </td>
+        <td>
+            <label type="text" th:text="${presentationDetail.duration}"/>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<a href="/presentation">Düzenle</a>
+</body>
+</html>
